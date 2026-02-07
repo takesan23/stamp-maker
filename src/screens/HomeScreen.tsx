@@ -9,10 +9,13 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MOCK_PACKS } from "../constants/stamps";
+import { colors, shadows } from "../constants/theme";
+import ScreenHeader from "../components/ScreenHeader";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import type { HomeStackParamList } from "../navigation/AppNavigator";
 
 type Props = {
-  navigation: NativeStackNavigationProp<Record<string, undefined>>;
+  navigation: NativeStackNavigationProp<HomeStackParamList, "Home">;
 };
 
 export default function HomeScreen({ navigation }: Props) {
@@ -20,12 +23,21 @@ export default function HomeScreen({ navigation }: Props) {
     <SafeAreaView className="flex-1 bg-bg-light">
       {/* Header */}
       <View className="px-6 pt-8 pb-4">
-        <View className="flex-row items-center justify-between mb-2">
-          <MaterialIcons name="menu" size={24} color="#121715" />
-          <View className="w-10 h-10 rounded-full bg-primary/20 items-center justify-center">
-            <MaterialIcons name="person" size={24} color="#a8e6cf" />
-          </View>
-        </View>
+        <ScreenHeader
+          variant="home"
+          title=""
+          onMenuPress={() => {}}
+          rightElement={
+            <TouchableOpacity
+              className="w-11 h-11 rounded-full bg-primary/20 items-center justify-center"
+              activeOpacity={0.7}
+              accessibilityRole="button"
+              accessibilityLabel="プロフィール"
+            >
+              <MaterialIcons name="person" size={24} color={colors.secondary} />
+            </TouchableOpacity>
+          }
+        />
         <Text className="text-3xl font-bold text-text-main tracking-tight py-2">
           マイスタンプ
         </Text>
@@ -38,23 +50,20 @@ export default function HomeScreen({ navigation }: Props) {
             <TouchableOpacity
               key={pack.id}
               className="bg-white rounded-lg overflow-hidden"
-              style={{
-                shadowColor: "#000",
-                shadowOffset: { width: 0, height: 4 },
-                shadowOpacity: 0.04,
-                shadowRadius: 16,
-                elevation: 2,
-              }}
-              activeOpacity={0.98}
-              onPress={() => navigation.navigate("PackEdit")}
+              style={shadows.sm}
+              activeOpacity={0.7}
+              onPress={() => navigation.navigate("PackDetail", { packId: pack.id })}
+              accessibilityRole="button"
+              accessibilityLabel={`${pack.name} ${pack.completedCount}/${pack.totalCount}枚 ${pack.status === "completed" ? "完了" : "作成中"}`}
             >
               <View className="p-4">
                 {/* Thumbnail */}
-                <View className="relative w-full aspect-video rounded-lg overflow-hidden mb-4 bg-gray-100">
+                <View className="relative w-full aspect-video rounded-lg overflow-hidden mb-4 bg-fill-tertiary">
                   <Image
                     source={{ uri: pack.thumbnailUri }}
                     className="w-full h-full"
                     resizeMode="cover"
+                    accessible={false}
                   />
                   <View
                     className={`absolute top-3 right-3 px-3 py-1 rounded-full ${
@@ -62,6 +71,7 @@ export default function HomeScreen({ navigation }: Props) {
                         ? "bg-primary"
                         : "bg-white/90"
                     }`}
+                    accessibilityLabel={`${pack.completedCount}/${pack.totalCount}枚完成`}
                   >
                     <Text className="text-xs font-bold text-text-main">
                       {pack.completedCount} / {pack.totalCount}
@@ -75,7 +85,7 @@ export default function HomeScreen({ navigation }: Props) {
                     <Text className="text-lg font-bold text-text-main">
                       {pack.name}
                     </Text>
-                    <Text className="text-sm text-gray-500">
+                    <Text className="text-sm text-text-sub">
                       {pack.status === "completed" ? "完了" : "作成中"}
                     </Text>
                   </View>
@@ -85,6 +95,10 @@ export default function HomeScreen({ navigation }: Props) {
                         ? "bg-primary"
                         : "bg-primary/20"
                     }`}
+                    activeOpacity={0.7}
+                    accessibilityRole="button"
+                    accessibilityLabel={pack.status === "completed" ? `${pack.name}を公開` : `${pack.name}を編集`}
+                    hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
                   >
                     <Text className="text-sm font-bold text-text-main">
                       {pack.status === "completed" ? "公開" : "編集"}
@@ -100,17 +114,13 @@ export default function HomeScreen({ navigation }: Props) {
       {/* FAB */}
       <TouchableOpacity
         className="absolute bottom-24 right-6 bg-primary flex-row items-center gap-2 px-6 py-4 rounded-full"
-        style={{
-          shadowColor: "#a8e6cf",
-          shadowOffset: { width: 0, height: 4 },
-          shadowOpacity: 0.3,
-          shadowRadius: 12,
-          elevation: 6,
-        }}
-        activeOpacity={0.9}
-        onPress={() => navigation.navigate("CreateTab")}
+        style={shadows.md}
+        activeOpacity={0.7}
+        onPress={() => navigation.navigate("PackDetail", { packId: "new" })}
+        accessibilityRole="button"
+        accessibilityLabel="新規スタンプパックを作成"
       >
-        <MaterialIcons name="add" size={24} color="#121715" />
+        <MaterialIcons name="add" size={24} color={colors.textMain} />
         <Text className="text-base font-bold text-text-main">新規作成</Text>
       </TouchableOpacity>
     </SafeAreaView>

@@ -54,13 +54,28 @@
 - 枚数: 8, 16, 24, 32, 40枚のいずれか
 - ZIPファイルで一括エクスポート
 
+## ナビゲーション構造
+```
+RootStack (NativeStack)
+├── MainTabs (BottomTab)
+│   ├── HomeTab → HomeStack
+│   │   ├── Home (SCR-01) - パック一覧
+│   │   ├── PackDetail (SCR-04) - パック詳細グリッド
+│   │   └── Export (SCR-07) - ZIP書き出し
+│   ├── QuickCreateTab (SCR-02) - すぐ作る
+│   ├── GuideTab (SCR-05) - 使い方ガイド
+│   └── SettingsTab (SCR-06) - 設定
+└── StickerEditor (SCR-03, fullScreenModal) - 3ステップエディタ
+```
+
 ## 画面構成
-1. HomeScreen - パック一覧（カード型、進捗バッジ）
-2. AIProcessingScreen - AI生成中（プログレスバー）
-3. StampCompleteScreen - 完成画面（紙吹雪演出）
-4. StampEditorScreen - テキスト編集（セリフ選択）
-5. PackEditScreen - パック編集（並び替え・削除）
-6. PreviewScreen - LINEプレビュー（チャット風）
+1. HomeScreen (SCR-01) - パック一覧（カード型、進捗バッジ）
+2. QuickCreateScreen (SCR-02) - すぐ作る（カメラ/ギャラリー選択）
+3. StickerEditorScreen (SCR-03) - スタンプエディタ（モーダル、3ステップ: 背景除去→文字入れ→プレビュー保存）
+4. PackDetailScreen (SCR-04) - パック詳細（グリッド表示、枚数選択、書き出しへ遷移）
+5. GuideScreen (SCR-05) - 使い方ガイド（審査ガイドライン、申請手順）
+6. SettingsScreen (SCR-06) - 設定（プロフィール、アプリ情報、サポート）
+7. ExportScreen (SCR-07) - 書き出し（バリデーション、ZIP生成）
 
 ## 開発フェーズ
 - **Phase 1**: UI モック（全画面のデザイン実装）← 現在

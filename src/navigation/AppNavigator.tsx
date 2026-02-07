@@ -2,76 +2,71 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { MaterialIcons } from "@expo/vector-icons";
+import { colors } from "../constants/theme";
 
 import HomeScreen from "../screens/HomeScreen";
-import StampEditorScreen from "../screens/StampEditorScreen";
-import AIProcessingScreen from "../screens/AIProcessingScreen";
-import StampCompleteScreen from "../screens/StampCompleteScreen";
-import PackEditScreen from "../screens/PackEditScreen";
-import PreviewScreen from "../screens/PreviewScreen";
+import PackDetailScreen from "../screens/PackDetailScreen";
+import ExportScreen from "../screens/ExportScreen";
+import QuickCreateScreen from "../screens/QuickCreateScreen";
+import GuideScreen from "../screens/GuideScreen";
+import SettingsScreen from "../screens/SettingsScreen";
+import StickerEditorScreen from "../screens/StickerEditorScreen";
 
-// Stack types
+// --- 型定義 ---
+export type RootStackParamList = {
+  MainTabs: undefined;
+  StickerEditor: {
+    imageUri?: string;
+    packId?: string;
+    returnTo?: "home" | "quick";
+  };
+};
+
 export type HomeStackParamList = {
   Home: undefined;
-  PackEdit: undefined;
-  Preview: undefined;
+  PackDetail: { packId: string };
+  Export: { packId: string };
 };
 
-export type CreateStackParamList = {
-  StampEditor: undefined;
-  AIProcessing: undefined;
-  StampComplete: undefined;
+export type MainTabParamList = {
+  HomeTab: undefined;
+  QuickCreateTab: undefined;
+  GuideTab: undefined;
+  SettingsTab: undefined;
 };
 
-const HomeStack = createNativeStackNavigator<HomeStackParamList>();
-const CreateStack = createNativeStackNavigator<CreateStackParamList>();
-const Tab = createBottomTabNavigator();
+const RootStack = createNativeStackNavigator<RootStackParamList>();
+const HomeStackNav = createNativeStackNavigator<HomeStackParamList>();
+const Tab = createBottomTabNavigator<MainTabParamList>();
 
 function HomeStackNavigator() {
   return (
-    <HomeStack.Navigator screenOptions={{ headerShown: false }}>
-      <HomeStack.Screen name="Home" component={HomeScreen} />
-      <HomeStack.Screen name="PackEdit" component={PackEditScreen} />
-      <HomeStack.Screen name="Preview" component={PreviewScreen} />
-    </HomeStack.Navigator>
+    <HomeStackNav.Navigator screenOptions={{ headerShown: false }}>
+      <HomeStackNav.Screen name="Home" component={HomeScreen} />
+      <HomeStackNav.Screen name="PackDetail" component={PackDetailScreen} />
+      <HomeStackNav.Screen name="Export" component={ExportScreen} />
+    </HomeStackNav.Navigator>
   );
 }
 
-function CreateStackNavigator() {
-  return (
-    <CreateStack.Navigator screenOptions={{ headerShown: false }}>
-      <CreateStack.Screen name="StampEditor" component={StampEditorScreen} />
-      <CreateStack.Screen name="AIProcessing" component={AIProcessingScreen} />
-      <CreateStack.Screen
-        name="StampComplete"
-        component={StampCompleteScreen}
-      />
-    </CreateStack.Navigator>
-  );
-}
-
-// Placeholder screens for tabs that aren't built yet
-function PlaceholderScreen() {
-  return null;
-}
-
-export default function AppNavigator() {
+function MainTabs() {
   return (
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: "#a8e6cf",
-        tabBarInactiveTintColor: "#9ca3af",
+        tabBarActiveTintColor: colors.secondary,
+        tabBarInactiveTintColor: "#8e8e93",
         tabBarStyle: {
-          backgroundColor: "rgba(255,255,255,0.9)",
-          borderTopColor: "#f3f4f6",
+          backgroundColor: "rgba(255,255,255,0.97)",
+          borderTopWidth: 0.5,
+          borderTopColor: colors.separator,
           height: 80,
           paddingBottom: 20,
           paddingTop: 8,
         },
         tabBarLabelStyle: {
-          fontSize: 10,
-          fontWeight: "700",
+          fontSize: 11,
+          fontWeight: "600",
         },
       }}
     >
@@ -80,41 +75,58 @@ export default function AppNavigator() {
         component={HomeStackNavigator}
         options={{
           tabBarLabel: "ホーム",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="home" size={size} color={color} />
+          tabBarAccessibilityLabel: "ホーム タブ",
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="home" size={24} color={color} />
           ),
         }}
       />
       <Tab.Screen
-        name="CreateTab"
-        component={CreateStackNavigator}
+        name="QuickCreateTab"
+        component={QuickCreateScreen}
         options={{
-          tabBarLabel: "作成",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="auto-fix-high" size={size} color={color} />
+          tabBarLabel: "すぐ作る",
+          tabBarAccessibilityLabel: "すぐ作る タブ",
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="add-photo-alternate" size={24} color={color} />
           ),
         }}
       />
       <Tab.Screen
-        name="HistoryTab"
-        component={PlaceholderScreen}
+        name="GuideTab"
+        component={GuideScreen}
         options={{
-          tabBarLabel: "作成履歴",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="history" size={size} color={color} />
+          tabBarLabel: "使い方",
+          tabBarAccessibilityLabel: "使い方 タブ",
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="menu-book" size={24} color={color} />
           ),
         }}
       />
       <Tab.Screen
         name="SettingsTab"
-        component={PlaceholderScreen}
+        component={SettingsScreen}
         options={{
           tabBarLabel: "設定",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="settings" size={size} color={color} />
+          tabBarAccessibilityLabel: "設定 タブ",
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="settings" size={24} color={color} />
           ),
         }}
       />
     </Tab.Navigator>
+  );
+}
+
+export default function AppNavigator() {
+  return (
+    <RootStack.Navigator screenOptions={{ headerShown: false }}>
+      <RootStack.Screen name="MainTabs" component={MainTabs} />
+      <RootStack.Screen
+        name="StickerEditor"
+        component={StickerEditorScreen}
+        options={{ presentation: "fullScreenModal" }}
+      />
+    </RootStack.Navigator>
   );
 }
