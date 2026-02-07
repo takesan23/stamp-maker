@@ -25,6 +25,14 @@ export const PHRASE_PRESETS = [
   "なるほど",
 ] as const;
 
+// ふんいきプリセット（AIが文字のフォント・色・配置を自動決定するためのスタイル指定）
+export const MOOD_PRESETS = [
+  { id: "kawaii", label: "かわいい", icon: "favorite" as const, color: "#FFB6C1" },
+  { id: "cool", label: "かっこいい", icon: "bolt" as const, color: "#64B5F6" },
+  { id: "honwaka", label: "ほんわか", icon: "spa" as const, color: "#FFE0B2" },
+  { id: "comic", label: "コミック風", icon: "flash-on" as const, color: "#FFD54F" },
+] as const;
+
 // モックデータ
 export const MOCK_PACKS = [
   {

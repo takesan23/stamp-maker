@@ -5,7 +5,6 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
-  Dimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -20,7 +19,7 @@ export default function HomeScreen({ navigation }: Props) {
   return (
     <SafeAreaView className="flex-1 bg-bg-light">
       {/* Header */}
-      <View className="px-6 pt-4 pb-2">
+      <View className="px-6 pt-8 pb-4">
         <View className="flex-row items-center justify-between mb-2">
           <MaterialIcons name="menu" size={24} color="#121715" />
           <View className="w-10 h-10 rounded-full bg-primary/20 items-center justify-center">
@@ -34,17 +33,24 @@ export default function HomeScreen({ navigation }: Props) {
 
       {/* Pack List */}
       <ScrollView className="flex-1 px-6" showsVerticalScrollIndicator={false}>
-        <View className="gap-6 pb-32">
+        <View className="gap-6 pt-4 pb-32">
           {MOCK_PACKS.map((pack) => (
             <TouchableOpacity
               key={pack.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm"
-              activeOpacity={0.95}
+              className="bg-white rounded-lg overflow-hidden"
+              style={{
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 4 },
+                shadowOpacity: 0.04,
+                shadowRadius: 16,
+                elevation: 2,
+              }}
+              activeOpacity={0.98}
               onPress={() => navigation.navigate("PackEdit")}
             >
               <View className="p-4">
                 {/* Thumbnail */}
-                <View className="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-gray-100">
+                <View className="relative w-full aspect-video rounded-lg overflow-hidden mb-4 bg-gray-100">
                   <Image
                     source={{ uri: pack.thumbnailUri }}
                     className="w-full h-full"
@@ -69,7 +75,7 @@ export default function HomeScreen({ navigation }: Props) {
                     <Text className="text-lg font-bold text-text-main">
                       {pack.name}
                     </Text>
-                    <Text className="text-sm text-text-sub">
+                    <Text className="text-sm text-gray-500">
                       {pack.status === "completed" ? "完了" : "作成中"}
                     </Text>
                   </View>
@@ -93,9 +99,16 @@ export default function HomeScreen({ navigation }: Props) {
 
       {/* FAB */}
       <TouchableOpacity
-        className="absolute bottom-28 right-6 bg-primary flex-row items-center gap-2 px-6 py-4 rounded-full shadow-lg"
+        className="absolute bottom-24 right-6 bg-primary flex-row items-center gap-2 px-6 py-4 rounded-full"
+        style={{
+          shadowColor: "#a8e6cf",
+          shadowOffset: { width: 0, height: 4 },
+          shadowOpacity: 0.3,
+          shadowRadius: 12,
+          elevation: 6,
+        }}
         activeOpacity={0.9}
-        onPress={() => navigation.navigate("Create")}
+        onPress={() => navigation.navigate("CreateTab")}
       >
         <MaterialIcons name="add" size={24} color="#121715" />
         <Text className="text-base font-bold text-text-main">新規作成</Text>

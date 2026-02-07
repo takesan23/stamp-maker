@@ -34,12 +34,18 @@ export default function StampCompleteScreen({ navigation }: Props) {
         </Text>
       </View>
 
-      {/* Celebration */}
-      <View className="px-4 pb-6 pt-8 items-center">
+      {/* Celebration Header */}
+      <View className="px-4 pb-6 pt-8 items-center overflow-hidden">
+        {/* Confetti-like decorative dots */}
+        <View className="absolute top-0 left-8 w-3 h-3 rounded-full bg-pink-200 opacity-60" />
+        <View className="absolute top-4 right-12 w-2 h-2 rounded-full bg-yellow-200 opacity-60" />
+        <View className="absolute top-8 left-20 w-2 h-2 rounded-full bg-blue-200 opacity-60" />
+        <View className="absolute bottom-2 right-20 w-3 h-3 rounded-full bg-primary opacity-40" />
+
         <Text className="text-3xl font-bold text-text-main mb-2">
           完成しました！
         </Text>
-        <Text className="text-sm text-text-sub">
+        <Text className="text-sm font-medium text-text-sub">
           かわいいスタンプができました
         </Text>
       </View>
@@ -48,7 +54,16 @@ export default function StampCompleteScreen({ navigation }: Props) {
       <View className="flex-1 items-center justify-center p-6">
         <View className="relative w-72 aspect-square items-center justify-center">
           <View className="absolute inset-0 bg-primary/20 rounded-full" />
-          <View className="relative z-10 w-full h-full bg-white rounded-3xl shadow-xl items-center justify-center overflow-hidden border-8 border-white">
+          <View
+            className="relative z-10 w-full h-full bg-white rounded-3xl items-center justify-center overflow-hidden border-8 border-white"
+            style={{
+              shadowColor: "#000",
+              shadowOffset: { width: 0, height: 8 },
+              shadowOpacity: 0.1,
+              shadowRadius: 24,
+              elevation: 8,
+            }}
+          >
             <Image
               source={{ uri: "https://placekitten.com/280/280" }}
               className="w-full h-full"
@@ -65,7 +80,14 @@ export default function StampCompleteScreen({ navigation }: Props) {
         {/* Action Buttons */}
         <View className="w-full max-w-xs mt-8 gap-3">
           <TouchableOpacity
-            className="flex-row items-center justify-center h-14 bg-primary rounded-full shadow-lg"
+            className="flex-row items-center justify-center h-14 bg-primary rounded-full"
+            style={{
+              shadowColor: "#a8e6cf",
+              shadowOffset: { width: 0, height: 4 },
+              shadowOpacity: 0.3,
+              shadowRadius: 12,
+              elevation: 4,
+            }}
             onPress={() => navigation.navigate("Home")}
           >
             <MaterialIcons name="download" size={22} color="#121715" />
@@ -75,6 +97,7 @@ export default function StampCompleteScreen({ navigation }: Props) {
           </TouchableOpacity>
           <TouchableOpacity
             className="flex-row items-center justify-center h-14 bg-transparent border-2 border-gray-100 rounded-full"
+            activeOpacity={0.7}
             onPress={() => navigation.replace("AIProcessing")}
           >
             <MaterialIcons name="refresh" size={22} color="#121715" />
@@ -86,7 +109,16 @@ export default function StampCompleteScreen({ navigation }: Props) {
       </View>
 
       {/* Pack Preview Footer */}
-      <View className="bg-bg-light p-6 rounded-t-3xl border-t border-gray-100">
+      <View
+        className="bg-bg-light p-6 rounded-t-3xl border-t border-gray-100"
+        style={{
+          shadowColor: "#000",
+          shadowOffset: { width: 0, height: -4 },
+          shadowOpacity: 0.05,
+          shadowRadius: 12,
+          elevation: 8,
+        }}
+      >
         <View className="flex-row items-center justify-between mb-4">
           <Text className="text-sm font-bold text-text-sub">
             作成中のパック (4/8)

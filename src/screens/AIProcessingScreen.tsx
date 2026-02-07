@@ -46,7 +46,14 @@ export default function AIProcessingScreen({ navigation }: Props) {
       {/* Header */}
       <View className="flex-row items-center p-6 pb-2 justify-between">
         <TouchableOpacity
-          className="w-10 h-10 rounded-full bg-white shadow-sm items-center justify-center"
+          className="w-10 h-10 rounded-full bg-white items-center justify-center"
+          style={{
+            shadowColor: "#000",
+            shadowOffset: { width: 0, height: 1 },
+            shadowOpacity: 0.05,
+            shadowRadius: 4,
+            elevation: 1,
+          }}
           onPress={() => navigation.goBack()}
         >
           <MaterialIcons name="close" size={24} color="#121715" />
@@ -60,8 +67,26 @@ export default function AIProcessingScreen({ navigation }: Props) {
       <View className="flex-1 items-center justify-center px-8">
         {/* Circle Animation */}
         <View className="relative w-64 h-64 mb-10">
-          <View className="absolute inset-0 bg-primary/20 rounded-full" />
-          <View className="w-full h-full bg-white rounded-full shadow-xl items-center justify-center border-8 border-white overflow-hidden">
+          {/* Decorative glow */}
+          <View
+            className="absolute bg-primary/20 rounded-full"
+            style={{
+              top: -12,
+              left: -12,
+              right: -12,
+              bottom: -12,
+            }}
+          />
+          <View
+            className="w-full h-full bg-white rounded-full items-center justify-center border-8 border-white overflow-hidden"
+            style={{
+              shadowColor: "#000",
+              shadowOffset: { width: 0, height: 8 },
+              shadowOpacity: 0.1,
+              shadowRadius: 24,
+              elevation: 8,
+            }}
+          >
             <MaterialIcons name="auto-fix-high" size={80} color="#a8e6cf" />
             <View className="flex-row gap-2 mt-2">
               <View className="w-2 h-2 bg-primary rounded-full" />
@@ -70,23 +95,41 @@ export default function AIProcessingScreen({ navigation }: Props) {
             </View>
           </View>
           {/* Floating accents */}
-          <View className="absolute -top-4 -right-4 bg-primary p-3 rounded-full shadow-lg">
+          <View
+            className="absolute -top-4 -right-4 bg-primary p-3 rounded-full"
+            style={{
+              shadowColor: "#a8e6cf",
+              shadowOffset: { width: 0, height: 4 },
+              shadowOpacity: 0.3,
+              shadowRadius: 8,
+              elevation: 4,
+            }}
+          >
             <MaterialIcons name="auto-awesome" size={24} color="#fff" />
           </View>
-          <View className="absolute bottom-4 -left-2 bg-white p-2 rounded-full shadow-md">
+          <View
+            className="absolute bottom-4 -left-2 bg-white p-2 rounded-full"
+            style={{
+              shadowColor: "#000",
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.1,
+              shadowRadius: 8,
+              elevation: 3,
+            }}
+          >
             <MaterialIcons name="favorite" size={20} color="#a8e6cf" />
           </View>
         </View>
 
         {/* Status Text */}
-        <Text className="text-2xl font-bold text-text-main text-center mb-8">
+        <Text className="text-2xl font-bold text-text-main text-center mb-8 tracking-tight">
           AIがスタンプを作成中...
         </Text>
 
         {/* Progress Bar */}
         <View className="w-full max-w-xs">
           <View className="flex-row justify-between items-end mb-2">
-            <Text className="text-sm text-text-sub">作成状況</Text>
+            <Text className="text-sm font-medium text-text-sub">作成状況</Text>
             <Text className="text-lg font-bold text-text-main">
               {Math.min(progress, 100)}%
             </Text>
@@ -94,7 +137,13 @@ export default function AIProcessingScreen({ navigation }: Props) {
           <View className="h-4 w-full bg-gray-200 rounded-full overflow-hidden">
             <View
               className="h-full bg-primary rounded-full"
-              style={{ width: `${Math.min(progress, 100)}%` }}
+              style={{
+                width: `${Math.min(progress, 100)}%`,
+                shadowColor: "#a8e6cf",
+                shadowOffset: { width: 0, height: 0 },
+                shadowOpacity: 0.8,
+                shadowRadius: 12,
+              }}
             />
           </View>
 
@@ -116,7 +165,7 @@ export default function AIProcessingScreen({ navigation }: Props) {
       {/* Cancel */}
       <View className="p-8 items-center">
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Text className="text-sm text-text-sub underline">
+          <Text className="text-sm text-text-sub underline" style={{ textDecorationLine: "underline" }}>
             生成をキャンセル
           </Text>
         </TouchableOpacity>

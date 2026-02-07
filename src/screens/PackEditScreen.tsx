@@ -6,6 +6,7 @@ import {
   Image,
   TextInput,
   ScrollView,
+  FlatList,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -27,6 +28,85 @@ const MOCK_STAMPS = [
 ];
 
 export default function PackEditScreen({ navigation }: Props) {
+  const renderStampItem = (uri: string, index: number) => {
+    const isSelected = index === 0;
+    return (
+      <View
+        key={index}
+        className={`aspect-square rounded-2xl bg-white overflow-hidden ${
+          isSelected
+            ? "border-2 border-primary"
+            : "border border-border-light"
+        }`}
+        style={[
+          { width: "30.5%" },
+          isSelected
+            ? {
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 8 },
+                shadowOpacity: 0.15,
+                shadowRadius: 16,
+                elevation: 8,
+                transform: [{ scale: 1.05 }],
+                zIndex: 10,
+              }
+            : {
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 1 },
+                shadowOpacity: 0.05,
+                shadowRadius: 4,
+                elevation: 1,
+              },
+        ]}
+      >
+        {/* Delete button */}
+        <View className="absolute top-1 left-1 z-20">
+          <TouchableOpacity
+            className={`w-6 h-6 rounded-full items-center justify-center ${
+              isSelected ? "bg-red-500" : "bg-gray-200/80"
+            }`}
+            style={isSelected ? {
+              shadowColor: "#000",
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.2,
+              shadowRadius: 4,
+              elevation: 3,
+            } : undefined}
+          >
+            <MaterialIcons
+              name="close"
+              size={14}
+              color={isSelected ? "#fff" : "#555"}
+            />
+          </TouchableOpacity>
+        </View>
+        {/* Drag handle */}
+        <View className="absolute top-1 right-1 z-20 w-6 h-6 items-center justify-center gap-0.5">
+          <View
+            className={`w-3.5 h-0.5 rounded-full ${
+              isSelected ? "bg-primary" : "bg-gray-400"
+            }`}
+          />
+          <View
+            className={`w-3.5 h-0.5 rounded-full ${
+              isSelected ? "bg-primary" : "bg-gray-400"
+            }`}
+          />
+          <View
+            className={`w-3.5 h-0.5 rounded-full ${
+              isSelected ? "bg-primary" : "bg-gray-400"
+            }`}
+          />
+        </View>
+        <Image
+          source={{ uri }}
+          className="w-full h-full p-2"
+          resizeMode="cover"
+        />
+      </View>
+    );
+  };
+
   return (
     <SafeAreaView className="flex-1 bg-bg-light">
       {/* Header */}
@@ -38,7 +118,9 @@ export default function PackEditScreen({ navigation }: Props) {
           >
             <MaterialIcons name="arrow-back-ios-new" size={20} color="#121715" />
           </TouchableOpacity>
-          <Text className="text-lg font-bold text-text-main">パックを編集</Text>
+          <Text className="text-lg font-bold text-text-main tracking-tight">
+            パックを編集
+          </Text>
         </View>
         <TouchableOpacity className="bg-primary px-6 py-2 rounded-full">
           <Text className="text-sm font-bold text-text-main">完了</Text>
@@ -54,7 +136,14 @@ export default function PackEditScreen({ navigation }: Props) {
             </Text>
             <View className="relative">
               <TextInput
-                className="w-full h-14 pl-5 pr-12 text-base font-medium rounded-xl bg-white shadow-sm text-text-main"
+                className="w-full h-14 pl-5 pr-12 text-base font-medium rounded-xl bg-white text-text-main"
+                style={{
+                  shadowColor: "#000",
+                  shadowOffset: { width: 0, height: 1 },
+                  shadowOpacity: 0.05,
+                  shadowRadius: 4,
+                  elevation: 1,
+                }}
                 defaultValue="うちの猫"
               />
               <View className="absolute right-4 top-4">
@@ -73,41 +162,17 @@ export default function PackEditScreen({ navigation }: Props) {
 
           {/* Sticker Grid */}
           <View className="flex-row flex-wrap gap-3">
-            {MOCK_STAMPS.map((uri, index) => (
-              <View
-                key={index}
-                className={`aspect-square rounded-2xl bg-white border overflow-hidden ${
-                  index === 0
-                    ? "border-2 border-primary shadow-xl"
-                    : "border-border-light shadow-sm"
-                }`}
-                style={{ width: "30.5%" }}
-              >
-                {/* Delete button */}
-                <View className="absolute top-1 left-1 z-20">
-                  <TouchableOpacity className="w-6 h-6 bg-gray-200/80 rounded-full items-center justify-center">
-                    <MaterialIcons name="close" size={14} color="#555" />
-                  </TouchableOpacity>
-                </View>
-                {/* Drag handle */}
-                <View className="absolute top-1 right-1 z-20 w-6 h-6 items-center justify-center gap-0.5">
-                  <View className="w-3 h-0.5 bg-gray-400 rounded-full" />
-                  <View className="w-3 h-0.5 bg-gray-400 rounded-full" />
-                  <View className="w-3 h-0.5 bg-gray-400 rounded-full" />
-                </View>
-                <Image
-                  source={{ uri }}
-                  className="w-full h-full p-2"
-                  resizeMode="cover"
-                />
-              </View>
-            ))}
+            {MOCK_STAMPS.map((uri, index) => renderStampItem(uri, index))}
             {/* Add placeholder */}
             <View
               className="aspect-square rounded-2xl border-2 border-dashed border-primary/40 bg-primary/5 items-center justify-center"
               style={{ width: "30.5%" }}
             >
-              <MaterialIcons name="add" size={36} color="rgba(168,230,207,0.4)" />
+              <MaterialIcons
+                name="add"
+                size={36}
+                color="rgba(168,230,207,0.4)"
+              />
             </View>
           </View>
 
@@ -122,6 +187,8 @@ export default function PackEditScreen({ navigation }: Props) {
             </Text>
           </TouchableOpacity>
         </View>
+        {/* Bottom spacer for tab bar */}
+        <View className="h-24" />
       </ScrollView>
     </SafeAreaView>
   );
