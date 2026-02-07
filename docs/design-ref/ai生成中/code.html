@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI生成中...</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#a8e6cf",
+                        "background-light": "#f9f9f9",
+                        "background-dark": "#131f1a",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "maru": ["Zen Maru Gothic", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .font-maru { font-family: 'Zen Maru Gothic', sans-serif; }
+        .pulsing {
+            opacity: 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased">
+<!-- Main Container (iOS Phone Frame Simulation) -->
+<div class="relative flex h-screen w-full max-w-[430px] mx-auto flex-col overflow-x-hidden bg-background-light dark:bg-background-dark">
+<!-- Top App Bar -->
+<div class="flex items-center p-6 pb-2 justify-between">
+<button class="text-[#121715] dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full bg-white dark:bg-white/10 shadow-sm transition-all">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h2 class="text-[#121715] dark:text-white text-lg font-bold leading-tight flex-1 text-center pr-10">AI生成中</h2>
+</div>
+<!-- Central Content Area -->
+<div class="flex flex-col items-center justify-center grow px-8">
+<!-- Illustration Container -->
+<div class="relative w-64 h-64 mb-10">
+<!-- Decorative Soft Glow -->
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-3xl scale-110"></div>
+<!-- Main Circular Frame -->
+<div class="relative w-full h-full bg-white dark:bg-white/5 rounded-full shadow-xl flex items-center justify-center border-8 border-white dark:border-white/10 overflow-hidden">
+<!-- Placeholder for Magic Wand/Robot Illustration -->
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-8xl mb-2 drop-shadow-md">auto_fix_high</span>
+<div class="flex gap-2">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+<div class="w-2 h-2 bg-primary/60 rounded-full"></div>
+<div class="w-2 h-2 bg-primary/30 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Floating Accents -->
+<div class="absolute -top-4 -right-4 bg-primary p-3 rounded-full shadow-lg text-white">
+<span class="material-symbols-outlined text-2xl">auto_awesome</span>
+</div>
+<div class="absolute bottom-4 -left-2 bg-white dark:bg-white/10 p-2 rounded-full shadow-md text-primary">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</div>
+</div>
+<!-- Pulsing Status Text -->
+<div class="text-center mb-8">
+<h3 class="text-[#121715] dark:text-white text-2xl font-bold leading-tight font-maru tracking-tight">
+                    AIがスタンプを作成中...
+                </h3>
+</div>
+<!-- Progress Section -->
+<div class="w-full max-w-xs space-y-6">
+<!-- Progress Bar -->
+<div class="relative">
+<div class="flex justify-between items-end mb-2">
+<span class="text-[#688279] dark:text-primary/70 text-sm font-medium">作成状況</span>
+<span class="text-[#121715] dark:text-white text-lg font-bold">68%</span>
+</div>
+<div class="h-4 w-full bg-[#dde4e1] dark:bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full shadow-[0_0_12px_rgba(168,230,207,0.8)]" style="width: 68%;"></div>
+</div>
+</div>
+<!-- Rotating Messages -->
+<div class="flex flex-col items-center space-y-2">
+<div class="flex items-center gap-2 text-[#688279] dark:text-gray-400">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<p class="text-sm font-normal leading-normal">背景をきれいに消しています...</p>
+</div>
+<!-- Secondary/Inactive Tips -->
+<p class="text-xs text-[#688279]/60 dark:text-gray-500 font-normal leading-normal text-center italic">
+                        いい感じのフチをつけています...
+                    </p>
+</div>
+</div>
+</div>
+<!-- Bottom Actions (Optional Cancel) -->
+<div class="p-8 text-center">
+<button class="text-[#688279] dark:text-gray-400 text-sm font-medium underline underline-offset-4 hover:text-primary transition-colors">
+                生成をキャンセル
+            </button>
+</div>
+<!-- Decorative elements for iOS feel -->
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-black/10 dark:bg-white/10 rounded-full"></div>
+</div>
+</body></html>

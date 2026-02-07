@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Zen+Maru+Gothic:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#a8e6cf",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#131f1a",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Zen Maru Gothic", "sans-serif"],
+                        "maru": ["Zen Maru Gothic", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .checkerboard {
+            background-image: linear-gradient(45deg, #e5e7eb 25%, transparent 25%), 
+                              linear-gradient(-45deg, #e5e7eb 25%, transparent 25%), 
+                              linear-gradient(45deg, transparent 75%, #e5e7eb 75%), 
+                              linear-gradient(-45deg, transparent 75%, #e5e7eb 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+        .text-outline {
+            paint-order: stroke fill;
+            text-shadow: 
+                -3px -3px 0 #fff,  
+                 3px -3px 0 #fff,
+                -3px  3px 0 #fff,
+                 3px  3px 0 #fff,
+                 0px  4px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#121715] dark:text-white antialiased">
+<div class="relative flex h-screen w-full flex-col overflow-hidden max-w-[480px] mx-auto shadow-2xl bg-white dark:bg-background-dark">
+<!-- TopAppBar -->
+<header class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between shrink-0">
+<div class="text-[#121715] dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined cursor-pointer">close</span>
+</div>
+<h1 class="text-[#121715] dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center font-maru">スタンプ編集</h1>
+<div class="flex w-12 items-center justify-end">
+<button class="flex items-center justify-center rounded-full h-12 bg-transparent text-[#121715] dark:text-white">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+</header>
+<!-- Main Preview Area -->
+<main class="flex-1 flex flex-col items-center justify-center p-4 overflow-hidden">
+<div class="relative w-full aspect-square max-w-[340px] rounded-2xl overflow-hidden shadow-inner border border-gray-100 dark:border-gray-800 flex items-center justify-center checkerboard">
+<!-- User's AI Image -->
+<div class="absolute inset-0 z-0 bg-center bg-cover bg-no-repeat opacity-90" data-alt="A cute character illustration for a digital sticker" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDjWJp5ci6rvL2jCXtuHfZJ-TSp-vGvRgF_BYP4_Tq84rucpVtpEE_o3qthiVetHbIQ7l12HPRk3Xk6_NdZRyp1RgtWs-QYFCRYzxFT9fiMsGkeMknZTVA-7zxNyvUij95nHzeqjkAfTZzdb-_A4ChPEE59KTbcHPqvTO0Qnvn_Jue03NgRO3usDMGijkrtIg4uxdF-0AhLI2YRP8F10uESQa5Z8widD9UxkGEnTgryYCuGambaD4QYuZfHxn_x3bKKVhuYLBmAf4Pt');">
+</div>
+<!-- Floating Text Overlay -->
+<div class="relative z-10 select-none">
+<span class="text-5xl md:text-6xl font-bold font-maru text-outline text-[#121715] tracking-wider">ありがとう</span>
+</div>
+</div>
+<p class="mt-4 text-sm text-gray-500 font-maru">プレビュー：文字の位置は調整できます</p>
+</main>
+<!-- Mid-section: Serif Chips -->
+<section class="w-full py-4 shrink-0 bg-white/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<h3 class="text-[#121715] dark:text-white text-md font-bold px-6 pb-3 font-maru">セリフを選択</h3>
+<div class="flex gap-3 px-6 overflow-x-auto no-scrollbar pb-2">
+<!-- Selected Chip -->
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary px-6 shadow-sm ring-2 ring-primary/20">
+<p class="text-[#121715] text-sm font-bold font-maru">ありがとう</p>
+</button>
+<!-- Other Chips -->
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 px-6">
+<p class="text-[#121715] dark:text-gray-200 text-sm font-medium font-maru">OK</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 px-6">
+<p class="text-[#121715] dark:text-gray-200 text-sm font-medium font-maru">了解</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 px-6">
+<p class="text-[#121715] dark:text-gray-200 text-sm font-medium font-maru">ぴえん</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 px-6">
+<p class="text-[#121715] dark:text-gray-200 text-sm font-medium font-maru">おつかれ</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 px-4">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</section>
+<!-- Bottom Actions -->
+<footer class="p-6 bg-white dark:bg-background-dark shrink-0">
+<div class="flex gap-4 items-center">
+<button class="flex-1 flex cursor-pointer items-center justify-center rounded-full h-14 px-5 border-2 border-primary text-[#121715] dark:text-primary text-base font-bold font-maru">
+<span class="truncate">戻る</span>
+</button>
+<button class="flex-1 flex cursor-pointer items-center justify-center rounded-full h-14 px-5 bg-primary text-[#121715] text-base font-bold shadow-lg shadow-primary/30 font-maru">
+<span class="truncate">次へ</span>
+</button>
+</div>
+<!-- Safe Area Spacer for iOS -->
+<div class="h-4"></div>
+</footer>
+</div>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

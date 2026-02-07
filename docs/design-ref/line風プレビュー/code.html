@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LINE風プレビュー</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#a8e6cf",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#131f1a",
+                        "chat-bg": "#7294C1",
+                        "bubble-left": "#ffffff",
+                        "bubble-right": "#a8e6cf",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .chat-container {
+            background-color: #7294C1;
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        /* Custom scrollbar for chat area */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#121715]">
+<div class="relative flex h-screen w-full max-w-md mx-auto flex-col bg-white overflow-hidden shadow-2xl">
+<!-- Top Navigation Bar (iOS Style) -->
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between border-b border-gray-100 dark:border-gray-800 z-10">
+<div class="text-[#121715] dark:text-white flex size-10 shrink-0 items-center justify-center cursor-pointer" data-icon="ArrowBack">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios</span>
+</div>
+<h2 class="text-[#121715] dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">プレビュー</h2>
+</div>
+<!-- Chat Area (LINE Style) -->
+<div class="flex-1 chat-container overflow-y-auto no-scrollbar p-4 flex flex-col gap-6">
+<!-- Timestamp -->
+<div class="flex justify-center">
+<span class="bg-black/10 text-white text-[10px] px-3 py-1 rounded-full">今日 12:34</span>
+</div>
+<!-- AI Message (Left) -->
+<div class="flex items-start gap-2 max-w-[85%]">
+<div class="bg-white rounded-full w-9 h-9 shrink-0 flex items-center justify-center overflow-hidden border border-white/20">
+<img class="w-full h-full object-cover" data-alt="Cute AI character profile icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWsgK7odxQl1LnUgT9sXaIIXaD4bWiLghWlznpb-sXQBJmzmUxOv8wQLwUXBAjhbMyrUE8GS23Mav0U_3ZTJD759n8UM92P4sMIB9ZKOteazkMd2wZ60xAMxhTqc4yh6HZW1K8l_6g0g6KpoBdPjm4YstLKaUFpdzJgfkU9gGuLKyOp8iarcFnbX0xM-ItpFV0G9p0vnAWneKQs-4M_odRz-MG522m1UE8-wU8azW4GuvCKV2aBkeWJN2SCSvOH4pwZNJPYQxA9tw-"/>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-white text-[11px] font-medium ml-1">AI Assistant</p>
+<div class="bg-white rounded-2xl rounded-tl-none px-4 py-2 shadow-sm">
+<p class="text-sm text-[#121715]">新しいスタンプができました！どうですか？</p>
+</div>
+</div>
+</div>
+<!-- Sticker (Left) -->
+<div class="flex items-start gap-2 max-w-[85%]">
+<div class="w-9 h-9 shrink-0"></div> <!-- Spacer for profile icon alignment -->
+<div class="flex flex-col gap-1">
+<div class="w-40 h-40 bg-transparent rounded-xl overflow-hidden">
+<img class="w-full h-full object-contain" data-alt="AI generated cute Shiba Inu sticker" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWWAuXtsPpsJ5wLvhTfyeRD2Bpk0XZ3uzl2vQXFLcedove-X89cgriPV3LbxTHfoBLEK7xvexwcEChVQptpPs6McrgZu2k0TPVdPAw05ZyMTSFYuLSe-fGVMcZfTQANickhfr8mdrgRQBXQXjgEgRI_AlbwnmYHL5AJvgR_4Rej4h3x9wTUrnlAt32fNWDOlex2M_m_MUEwbstYCohk-PYUhrMH41diFsvTDkK4R7WIniK0RYwarGVPegiR3Y-Ad08NDanArLSF_Go"/>
+</div>
+<span class="text-white/70 text-[10px] ml-1">12:35</span>
+</div>
+</div>
+<!-- User Message (Right) -->
+<div class="flex items-end gap-2 self-end max-w-[85%] flex-row-reverse">
+<div class="flex flex-col items-end gap-1">
+<div class="bg-primary rounded-2xl rounded-tr-none px-4 py-2 shadow-sm">
+<p class="text-sm text-[#121715]">すごく可愛いです！このまま書き出します。</p>
+</div>
+<span class="text-white/70 text-[10px] mr-1">12:36</span>
+</div>
+</div>
+<!-- Sticker (Right) -->
+<div class="flex items-end gap-2 self-end max-w-[85%] flex-row-reverse">
+<div class="flex flex-col items-end gap-1">
+<div class="w-40 h-40 bg-transparent rounded-xl overflow-hidden">
+<img class="w-full h-full object-contain" data-alt="AI generated happy cat sticker" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPFNcbNJh4Je6hTuQ_hrLgOMLjnux1OA-GgxV1hQBMjPfP7X62xw6B1r9AuwEfqP-Mmr4EiQ7iDB1GTXAdVMLeU4_OPuViRhaWrBT9FIj6QmU-TXn6MrzhGaMPrax7PbNJ6HmISJOZqD4jrcwPp1n1ku-Z-45jWgecMmYwx7OFIfXoeL1V_MXSmokBKdmRRdid8x6d4Kz85wR92VCSnNHPwgeB23rIT79tIToRqUkMbK71vFL7YKjXKJHw4iLhbJ02mYcuV0cOmvya"/>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-primary text-[10px] font-bold">既読</span>
+<span class="text-white/70 text-[10px] mr-1">12:37</span>
+</div>
+</div>
+</div>
+<!-- Another AI Message (Left) -->
+<div class="flex items-start gap-2 max-w-[85%]">
+<div class="bg-white rounded-full w-9 h-9 shrink-0 flex items-center justify-center overflow-hidden border border-white/20">
+<img class="w-full h-full object-cover" data-alt="Cute AI character profile icon avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQOgj6SpWD2RwkEIORv__zyCZzIKYddbO9mRTfevf36zN1ZaDDLu_F1FW42QrOlAH7M_HHestKKAiB57r1k0Rak86Ge2mJpPMtf2UvASktGHkr6Xs01qo04TLDqNM-JQ5X7OUJM2t6F_j7hlSio2bMYUPu85mKr6WDbpTEGG9L3De24eCQWmq1bUn8g3VoqFEEU2p8FDMBNZzbmdmrBFkAE0Pedb853t0JKZ2D3rj1H8PjifJWjmFVWVQr0ep4H5Mk3URpdh2c2G8s"/>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-white text-[11px] font-medium ml-1">AI Assistant</p>
+<div class="bg-white rounded-2xl rounded-tl-none px-4 py-2 shadow-sm">
+<p class="text-sm text-[#121715]">ありがとうございます！ZIPファイルでまとめました。下のボタンから保存してくださいね ✨</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Actions (iOS Style Home Indicator area) -->
+<div class="bg-white dark:bg-background-dark px-6 pt-4 pb-8 border-t border-gray-100 dark:border-gray-800">
+<div class="flex flex-col gap-3">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-5 bg-primary hover:bg-opacity-90 transition-all text-[#121715] text-base font-bold leading-normal tracking-wide shadow-lg">
+<span class="material-symbols-outlined mr-2">download_for_offline</span>
+<span class="truncate">書き出す (ZIP)</span>
+</button>
+<button class="w-full text-center text-[#688279] dark:text-gray-400 text-sm font-medium py-2">
+                    やり直す
+                </button>
+</div>
+</div>
+<!-- Fake iOS Home Indicator -->
+<div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-black/10 rounded-full"></div>
+</div>
+</body></html>

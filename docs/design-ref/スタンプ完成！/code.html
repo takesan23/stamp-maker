@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#a8e6cf",
+              "background-light": "#f6f8f7",
+              "background-dark": "#131f1a",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .confetti-gradient {
+            background: radial-gradient(circle, #ffccf9 10%, transparent 10.01%),
+                        radial-gradient(circle, #ffffb5 10%, transparent 10.01%),
+                        radial-gradient(circle, #c2e9fb 10%, transparent 10.01%),
+                        radial-gradient(circle, #a8e6cf 10%, transparent 10.01%);
+            background-size: 80px 80px;
+            background-position: 0 0, 40px 40px, 20px 60px, 60px 20px;
+            opacity: 0.4;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#121715] dark:text-white transition-colors duration-300">
+<div class="relative flex h-screen w-full flex-col overflow-hidden max-w-[480px] mx-auto bg-white dark:bg-[#121715]">
+<!-- Top App Bar -->
+<div class="flex items-center px-4 pt-4 pb-2 justify-between z-10">
+<div class="text-[#121715] dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 28px;">close</span>
+</div>
+<h2 class="text-sm font-bold leading-tight tracking-tight flex-1 text-center pr-12">スタンプ完成！</h2>
+</div>
+<!-- Celebration Header -->
+<div class="relative px-4 pb-6 pt-8 text-center overflow-hidden">
+<div class="absolute inset-0 confetti-gradient pointer-events-none"></div>
+<h1 class="relative z-10 text-[32px] font-bold leading-tight tracking-tight mb-2">完成しました！</h1>
+<p class="relative z-10 text-[#688279] dark:text-gray-400 text-sm font-medium">かわいいスタンプができました</p>
+</div>
+<!-- Main Content (Sticker Display) -->
+<div class="flex-1 flex flex-col items-center justify-center p-6 space-y-8">
+<!-- Sticker Preview Container -->
+<div class="relative w-full aspect-square max-w-[280px] flex items-center justify-center">
+<!-- Background decorative glow -->
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-3xl"></div>
+<!-- The Sticker -->
+<div class="relative z-10 w-full h-full bg-white dark:bg-gray-800 rounded-3xl shadow-xl flex items-center justify-center overflow-hidden border-8 border-white dark:border-gray-700">
+<img alt="A cute golden retriever puppy with a bright white sticker outline" class="w-full h-full object-cover" data-alt="A cute puppy sticker with a thick white outline" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGl1JOr5pEhgTIO2ZoNZZ8DZHu7Y9KyAAJ4I-1agZfC5oKqnvKHRJq4Mrbe0-lHxdSR-VsTW4GPfD3c0nk46P1MMoCR7KDmT1VRc0Nw6uJ24dJ33akFK93OS2af4H3z9_wVFMq4GyQ40G7FQbUS1R3jp6FZyj6gNw3vMS5t5Bpb_MAl_j9QeRZu6VQdzmAzuCqVFUcmk7m8x2ONuNjocoTqAaoSA1t7DvoIZtBl9NWRj1Ps-dTNUrOKC0Kfu1DJsshdB5kUstH07PS"/>
+<!-- Overlay Text Sample -->
+<div class="absolute bottom-4 left-0 right-0 text-center">
+<span class="bg-white px-4 py-1 rounded-full text-black font-bold text-lg shadow-sm border-2 border-primary/30">OK!</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="w-full max-w-[320px] flex flex-col gap-3">
+<button class="flex items-center justify-center h-14 w-full bg-primary text-[#121715] rounded-full font-bold text-lg shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined mr-2">download</span>
+<span>パックに保存する</span>
+</button>
+<button class="flex items-center justify-center h-14 w-full bg-transparent border-2 border-[#f1f4f3] dark:border-gray-700 text-[#121715] dark:text-white rounded-full font-bold text-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined mr-2">refresh</span>
+<span>作り直す</span>
+</button>
+</div>
+</div>
+<!-- Context Preview Section -->
+<div class="bg-background-light dark:bg-gray-900/50 p-6 rounded-t-3xl border-t border-gray-100 dark:border-gray-800 shadow-2xl">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold text-[#688279] dark:text-gray-400">作成中のパック (4/8)</h3>
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">apps</span>
+</div>
+<div class="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
+<div class="flex-shrink-0 size-16 rounded-xl bg-white dark:bg-gray-800 border-2 border-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Small puppy sticker thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd4WGOjh4_Vss2aYUpYDPJIIdMdchnIsBZoaYT8Rh_XBicaSV250zwKqgMcVrFyAq-D9vGniOWp3hXuLEPENIhTSvAIxq693Xda2vRhhNUgvMh7cXQ6FPsCaCuhiP-4p5xyBdoYDmJ9y3Y4rEDa-XcIojNJbox2g3LKKQg5mlqQi9DoXzvYtBRIAHlJBHszaEmdFCWal_kQ3Oefa3nzlCOX__c1bP_tFkpzEKlJZOhdxRmYz6hXM_oIHsjeCEy2VwhE_i9PW2HhZ1H"/>
+</div>
+<div class="flex-shrink-0 size-16 rounded-xl bg-gray-200 dark:bg-gray-700 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Poodle puppy sticker thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5hNvbVHL9Mqb_n0mhkkujHIPeWhztBYvwlOtGu1yu-tWuOkYBUdbbdr4gNb0P-xfUvu42Yb76wr-TpifTPZ0zG2j4g5gWbgmOzyHGfx8_M_esMbJlhRpLZC21Sj2c5OHVmloFmWcYJvr97fPFYIzGrdZSIwTUou-EFv8jjOUPvnQDvmORTNzNbY6oZF63bp38CmtvBA7tNgNczm0Jexn8j1-wgT_kioxmt-UvdUSwzJZQuFp1p777t_vSnazAeOoJTWsDaq8OZ8ZL"/>
+</div>
+<div class="flex-shrink-0 size-16 rounded-xl bg-gray-200 dark:bg-gray-700 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Bulldog puppy sticker thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCStxptNmD-KixaJYDhuEjy41aMBiTzOSJw1vG1xX7RwQLx7tqj5hftZXKQURsCbDtTKQxjCNtO5dOGqAOjTR-zQ8J9tiGfL9PLoN3QYPxweABXcgE2EcP9KBCzfnt-Y4lZKheXlozJxEB3FREOPlY_7Sar49RnzhfN4gsM4alPIgxWuKx1I4uiOsoOKnTrU30hjD13UIlGTaLyIoDbmkirHk8WggO7IHuS7i_A6yKJZ5y3xFId_yu5et-qbf5z_h4EMlDGj80Xvrs9"/>
+</div>
+<div class="flex-shrink-0 size-16 rounded-xl bg-gray-200 dark:bg-gray-700 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Husky puppy sticker thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDINI__ZgWbUW1ENdjPMNPNoeJjKr4RVcczBVFtX0o07DH_l6HiCNg0m451Q4akZ4HeimYj9JTbXfQp-HW7AYpWysuBySrqdeUx4SHxo7KZAAOfPsoNbF7SZcR3tjrsSoCWanHJQrpVxLZx1O2kQmfx9qSaHcT94ckcfIzxYWOAlbBoTt-Ecj7eQ-X9YC7q-dp90bwIrtmr0OjAnnBvfOQ8ndu_JcJjD5siYrY-a279C4gX8G7ZnXKY9QD29NCg0XspF1XfM10DcwO_"/>
+</div>
+<div class="flex-shrink-0 size-16 rounded-xl bg-gray-50 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-gray-400">add</span>
+</div>
+</div>
+</div>
+<!-- iOS Bottom Indicator -->
+<div class="h-8 bg-background-light dark:bg-gray-900/50 flex justify-center items-end pb-2">
+<div class="w-32 h-1 bg-gray-300 dark:bg-gray-700 rounded-full"></div>
+</div>
+</div>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ホーム - マイスタンプ</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Zen+Maru+Gothic:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#a8e6cf",
+                        "background-light": "#f9f9f9",
+                        "background-dark": "#131f1a",
+                    },
+                    fontFamily: {
+                        "display": ["Zen Maru Gothic", "Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "1.5rem", // 24px as requested
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Zen Maru Gothic', 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-[#121715] dark:text-white">
+<div class="max-w-[480px] mx-auto min-h-screen relative flex flex-col pb-24">
+<!-- Header Section -->
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 pt-8 pb-4">
+<div class="flex items-center justify-between mb-2">
+<span class="material-symbols-outlined text-2xl">menu</span>
+<div class="size-10 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl">person</span>
+</div>
+</div>
+<h1 class="text-3xl font-bold tracking-tight py-2">マイスタンプ</h1>
+</header>
+<!-- Main Content (Sticker Packs) -->
+<main class="flex flex-col gap-6 px-6 pt-4">
+<!-- Card 1 -->
+<div class="group bg-white dark:bg-[#1c2a24] rounded-lg overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.04)] dark:shadow-none transition-transform active:scale-[0.98]">
+<div class="p-4 flex flex-col">
+<div class="relative w-full aspect-video rounded-lg overflow-hidden mb-4">
+<img alt="うちの猫" class="w-full h-full object-cover" data-alt="Close up of a cute cat face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPnfT9entuY5bD-b1QKs_Di0VAD9MX1X4qHBAvXVIE6lEg3Mx7NxnG3Jvuq4z-_pA8mNuhkpxfRIw0aWBTADCguB-dymXOSVkfJl1ySHszXmD-JjwTDG-0nVpEobCwusqb7Mt0dNbl7fuQpAp5epkuf2K1f8qgTMbxSIAT1zvo3ABGC99U9zStbA-zHnh-kNkRsH-EV-TCp70tnXm63TsiI1AqTZXjA2IhnguIVcJARyCOOfvBejDUaQ07NzUQkEGHyS1TEKJIB0hT"/>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-black/40 backdrop-blur px-3 py-1 rounded-full text-xs font-bold">
+                            12 / 24
+                        </div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<h2 class="text-lg font-bold">うちの猫</h2>
+<p class="text-sm text-gray-500 dark:text-gray-400">作成中</p>
+</div>
+<button class="bg-primary/20 text-[#121715] dark:text-primary dark:bg-primary/10 px-4 py-2 rounded-full text-sm font-bold">
+                            編集
+                        </button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white dark:bg-[#1c2a24] rounded-lg overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.04)] dark:shadow-none transition-transform active:scale-[0.98]">
+<div class="p-4 flex flex-col">
+<div class="relative w-full aspect-video rounded-lg overflow-hidden mb-4">
+<img alt="おやすみワンちゃん" class="w-full h-full object-cover" data-alt="A puppy sleeping comfortably on a rug" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl1DWqRsn5FCAxJ8g3ob0RS0EHpXHdxBwNm_8ZU_BfDgJ7jLjw2uDqUdFZ4__F2ae0pou_EyH9AZO3rqazW-UC9aAWPPZyxrA9YCogBPgqQPXeqIHGgAjC8OK3qlVcprF_DhFmOq_5kIIB0dYbV8YBae1HM-ikzoclMldAxTceksoqB8BV8TTtfK6K6PmB4CcBSNbTwWeNFSB96895ca339SzUv7ARku4n4rU-X8T7kdrNkUX4QhMleGeUQ9IL56kWvbAgzvqR6y5Q"/>
+<div class="absolute top-3 right-3 bg-primary text-[#121715] px-3 py-1 rounded-full text-xs font-bold">
+                            24 / 24
+                        </div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<h2 class="text-lg font-bold">おやすみワンちゃん</h2>
+<p class="text-sm text-gray-500 dark:text-gray-400">完了</p>
+</div>
+<button class="bg-primary text-[#121715] px-4 py-2 rounded-full text-sm font-bold">
+                            公開
+                        </button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-white dark:bg-[#1c2a24] rounded-lg overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.04)] dark:shadow-none transition-transform active:scale-[0.98]">
+<div class="p-4 flex flex-col">
+<div class="relative w-full aspect-video rounded-lg overflow-hidden mb-4">
+<img alt="毎日の挨拶" class="w-full h-full object-cover" data-alt="Bright spring flowers in a field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs5XsrPk_Tdp1-xYU2sQHJzDY4dO3A3CgYa3MZVRrOw4DX_hbB3zBBJWU7SW6C7IczVaQPmqCbjPlWoPiizyyZTwAEFLr-CVT1GNYEMfydB3HVY3VBHk0vPDrqZeRs2-zd1J7zGeazv4u5GF3RuHTwN1HKEaTV66XplCZdjAVHyldSHECsM7hYQvLXKPlmFPaur-xZD_FrdtSN9wMvcjNu40qKnpw1xVFz8ArwUisyrkdRwCWURGQTmDi0Y9jMFs98Ptz_6pHEIS-b"/>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-black/40 backdrop-blur px-3 py-1 rounded-full text-xs font-bold">
+                            5 / 24
+                        </div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<h2 class="text-lg font-bold">毎日の挨拶</h2>
+<p class="text-sm text-gray-500 dark:text-gray-400">作成中</p>
+</div>
+<button class="bg-primary/20 text-[#121715] dark:text-primary dark:bg-primary/10 px-4 py-2 rounded-full text-sm font-bold">
+                            編集
+                        </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<div class="fixed bottom-8 right-6">
+<button class="bg-primary text-[#121715] flex items-center gap-2 px-6 py-4 rounded-full shadow-lg shadow-primary/30 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-2xl font-bold">add</span>
+<span class="text-base font-bold">新規作成</span>
+</button>
+</div>
+<!-- Tab Bar (iOS Style) -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto h-20 bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl border-t border-gray-100 dark:border-gray-800 flex items-center justify-around px-8">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold">ホーム</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-bold">見つける</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">auto_fix_high</span>
+<span class="text-[10px] font-bold">作成履歴</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">設定</span>
+</div>
+</nav>
+</div>
+</body></html>
